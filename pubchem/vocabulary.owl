@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY prov "http://www.w3.org/ns/prov#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY obo2 "http://purl.obolibrary.org/obo#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#"
+     xml:base="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:obo2="http://purl.obolibrary.org/obo#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#">
+        <owl:imports rdf:resource="ftp://ftp.ebi.ac.uk/pub/databases/chebi/ontology/chebi.owl"/>
+        <owl:imports rdf:resource="&obo;bfo.owl"/>
+        <owl:versionIRI rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#1.0"/>
+        <owl:imports rdf:resource="http://semanticscience.org/ontology/cheminf.owl"/>
+        <owl:imports rdf:resource="http://semanticscience.org/ontology/sio.owl"/>
+        <owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;description"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PubChemAssayOutcome -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PubChemAssayOutcome">
+        <rdfs:label>PubChem BioAssay Outcome Category</rdfs:label>
+        <rdfs:comment>The PubChem BioAssay outcome categery has five values: inactive-&gt;substance is considered inactive; active-&gt;substance is considered active; inconclusive-&gt;substance is inconclusive; unspecified-&gt;substance outcome is unspecified; probe-&gt;substance is used as a probe.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#encodedBy -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#encodedBy">
+        <rdfs:label>encoded by</rdfs:label>
+        <rdfs:comment>The transcription of a protein sequence is encoded by a gene sequence.</rdfs:comment>
+        <owl:inverseOf rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#encoding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#encoding -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#encoding">
+        <rdfs:label>encoding</rdfs:label>
+        <rdfs:comment>A gene sequence encodes the transcription of protein sequence.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#geneSymbol -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#geneSymbol">
+        <rdfs:label>gene symbol</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#hasSimilarProtein -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#hasSimilarProtein">
+        <rdfs:label>has similar protein</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#has_parent -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#has_parent">
+        <rdfs:label>has parent</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://semanticscience.org/resource/CHEMINF_000480"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:DatatypeProperty rdf:about="&dcterms;title">
+        <rdfs:label>Title</rdfs:label>
+        <obo2:Definition>A name given to the resource.</obo2:Definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000004 -->
+
+    <owl:Class rdf:about="&obo;BFO_0000004"/>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#BLAST-Evalue -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#BLAST-Evalue">
+        <rdfs:comment>A BLAST e-value is a statistical estimate whose value is the expected number of different sequence alignments with scores equivalent to or better than that which is expected to occur by random chance in that database. It indicates the statistical significance of a pairwise protein sequence similarity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC2D_Fingerprint_TanimotoScore -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC2D_Fingerprint_TanimotoScore">
+        <rdfs:comment>A 2D PubChem tanimoto score is a Jaccard index computed from a set of predefined structure-key  fingerprints, which are calculated based on 2D chemical structures.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC2D_structural_similarity -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC2D_structural_similarity">
+        <rdfs:comment>Similarity is a quality or quantity shared by two or more objects based on the comparison of one or more attributes. Structural similarity is similarity based on the qualities and spatial/temporal arrangement of wholes and their parts. PubChem chemical structural similarity neighboring defined according to 2D fignerprint Tanimoto score.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC3D_Feature_TanimotoScore -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC3D_Feature_TanimotoScore">
+        <rdfs:comment>A 3D PubChem shape Tanimoto score is a Jaccard index computed from the overlap volume between the 3D conformers of two neutralized molecular entities, according to the Gaussian-based volume integration. The detail implementation refers to http://pubchem.ncbi.nlm.nih.gov/release3d.html.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC3D_Shape_TanimotoScore -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC3D_Shape_TanimotoScore">
+        <rdfs:comment>A 3D PubChem color Tanimoto score is a Jaccard index computed from  the overlap volume of predefined six pharmacophore feature atoms between the 3D conformers of two neutralized molecular entities, according to the Gaussian-based volume integration. The detail implementation refers to http://pubchem.ncbi.nlm.nih.gov/release3d.html.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC3D_structural_similarity -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#PC3D_structural_similarity">
+        <rdfs:comment>Similarity is a quality or quantity shared by two or more objects based on the comparison of one or more attributes. Structural similarity is similarity based on the qualities and spatial/temporal arrangement of wholes and their parts. PubChem chemical structural similarity neighboring defined accroding to 3D feature Tanimoto score and 3D shape Tanimoto score.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#ProteinSequenceBitScore -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#ProteinSequenceBitScore">
+        <rdfs:comment>Bit score, calculated using BLAST algorithm, indicates the bit overlap between two protein sequence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#ProteinSequenceSimilarityIdentity -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#ProteinSequenceSimilarityIdentity">
+        <rdfs:comment>Sequence similarity identity score, calculated using BLAST algorithm, indicates the percentage of overlap sequence between two protein sequence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#ProteinSequenceSimilarityRelation -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#ProteinSequenceSimilarityRelation">
+        <rdfs:comment>Protein similarity neighboring defined according to sequence similarity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#active -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#active">
+        <rdfs:comment>The substance is considered active in a given measure group according to PubChem BioAssay outcome scores.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#inactive -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#inactive">
+        <rdfs:comment>The substance is considered inactive in a given measure group according to PubChem BioAssay outcome scores.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#inconclusive -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#inconclusive">
+        <rdfs:comment>The bioactivity of substance is inconclusive in a given measure group according to PubChem BioAssay outcome scores.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#probe -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#probe">
+        <rdfs:comment>The substance is used as a probe in a given measure group.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#unspecified -->
+
+    <owl:Class rdf:about="http://rdf.ncbi.nlm.nih.gov/pubchem/vocabulary#unspecified">
+        <rdfs:comment>The substance outcome in a given measure group is unspecified.</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.3.1957) http://owlapi.sourceforge.net -->
+

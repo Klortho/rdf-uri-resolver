@@ -1,0 +1,124 @@
+# RDF URI resolver - remote tests
+
+# When composing the request, any parameter not given here will be absent in the
+# request. request parameters are:
+#   - path: the path portion of the URL (defaults to '/')
+#   - method: GET (default) or POST
+#   - accept: value for the HTTP 'Accept' header
+# expected parameters are:
+#   - code: defaults to 200
+#   - content-type: if given, this should match the entire content-type string
+#   - content-type-media : if given, matches the part of the Content-type
+#     header before the semicolon.
+
+
+# GET request of the root - should give a 404
+- name: root
+  request:
+    path: /
+  expected:
+    code: 404
+    content-type-media: "text/plain"
+    content-contains: "Missing project"
+
+# Missing project
+- name: missing-project
+  request:
+    path: /project
+  expected:
+    code: 404
+
+# GET a PubChem compound URI
+- name: pubchem-compound
+  request:
+    path: /pubchem/compound/CID2244
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244
+
+# HTML format
+- name: pubchem-html
+  request:
+    path: /pubchem/compound/CID2244
+    accept: text/html
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244.html
+
+# JSON format
+- name: pubchem-json
+  request:
+    path: /pubchem/compound/CID2244
+    accept: application/json
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244.json
+
+# JSONLD format
+- name: pubchem-jsonld
+  request:
+    path: /pubchem/compound/CID2244
+    accept: application/x-json+ld
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244.jsonld
+
+# RDF+XML format
+- name: pubchem-rdf
+  request:
+    path: /pubchem/compound/CID2244
+    accept: application/rdf+xml
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244.rdf
+
+# Turtle format
+- name: pubchem-turtle
+  request:
+    path: /pubchem/compound/CID2244
+    accept: text/turtle
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244.turtle
+
+# Ntriples format
+- name: pubchem-ntriples
+  request:
+    path: /pubchem/compound/CID2244
+    accept: text/plain
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244.ntriples
+
+# N3 format
+- name: pubchem-n3
+  request:
+    path: /pubchem/compound/CID2244
+    accept: text/n3
+  expected:
+    code: 303
+    location: http://pubchem.ncbi.nlm.nih.gov/rest/rdf/compound/CID2244.n3
+
+
+
+
+
+# Vocabulary redirect: this will redirect to vocabulary.owl, but the actual 
+# location depends on the base URL of the service, so we can't test that.
+- name: pubchem-vocab
+  request:
+    path: /pubchem/vocabulary.owl
+  expected:
+    code: 303
+
+## GET vocabulary owl file
+## Note that this test would only work on the final deployment -- serving the
+## OWL file is handled by apache.
+#- name: pubchem-vocab-owl
+#  request:
+#    path: /pubchem/vocabulary.owl
+#  expected:
+#    code: 200
+
+
+
